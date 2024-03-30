@@ -1,6 +1,14 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["astro"],
-  "ignorePaths": ["node_modules/", ".husky", "pnpm-lock.yaml", "package.json", ".prettierrc"]
+  "words": ["astro", "daisyui", "lakandula", "marikina"],
+  "ignorePaths": [
+    "node_modules/",
+    ".husky",
+    "pnpm-lock.yaml",
+    "package.json",
+    ".prettierrc",
+    "public",
+    "src/components/Logo.astro"
+  ]
 }

@@ -1,12 +1,104 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Logo from '../components/Logo.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<MainLayout>
+  <header class="grid place-items-center py-6">
+    <Logo />
+    <!-- <nav class="flex gap-6 mt-2"> -->
+    <!--   <a href="#" rel="ugc" class="font-medium"> About </a> -->
+    <!--   <a href="#" rel="ugc" class="font-medium"> Schedule </a> -->
+    <!--   <a href="#" rel="ugc" class="font-medium"> Contact </a> -->
+    <!-- </nav> -->
+  </header>
+
+  <main class="max-w-2xl mx-auto">
+    <section>
+      <h1 class="text-3xl font-extrabold py-4">Welcome to Our Church</h1>
+      {/* cSpell:disable */}
+      <p class="text-xl leading-loose">
+        Lorem ipsum dolor rutrum porttitor est, a iaculis purus hendrerit eu. Suspendisse potenti.
+        Quisque nunc eros, tincidunt et enim eu, ultrices posuere nunc. Morbi sodales sem eu dolor
+        fermentum, quis maximus ligula ultrices. Sed lobortis pretium lacinia. Praesent auctor non
+        dui sit amet iaculis. Praesent ac eleifend elit, sed eleifend elit. Donec purus velit,
+        cursus eget mauris a, sagittis lacinia libero. Vestibulum justo libero, blandit ut libero
+        sit amet, posuere porttitor neque. Nam in pellentesque risus, nec sollicitudin lacus.
+      </p>
+      {/* cSpell:enable */}
+    </section>
+
+    <section class="max-w-sm mx-auto mt-12">
+      <h2 class="text-3xl font-extrabold">Lord's Day Schedule</h2>
+      <div class="w-full divide-y mt-6">
+        <div class="grid gap-1.5 py-2">
+          <h3 class="text-xl font-semibold">9:00 AM</h3>
+          <p class="leading-loose">Morning Service</p>
+        </div>
+        <div class="grid gap-1.5 py-2">
+          <h3 class="text-xl font-semibold">11:00 AM</h3>
+          <p class="leading-loose">Adults' Sunday School</p>
+        </div>
+        <div class="grid gap-1.5 py-2">
+          <h3 class="text-xl font-semibold">2:00 PM</h3>
+          <p class="leading-loose">Kids' Sunday School</p>
+        </div>
+        <div class="grid gap-1.5 py-2">
+          <h3 class="text-xl font-semibold">3:00 PM</h3>
+          <p class="leading-loose">Afternoon Service</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-md mx-auto mt-16">
+      <h2 class="text-3xl font-extrabold">Contact Us</h2>
+      <form class="mt-4">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text font-medium">Email</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" />
+        </label>
+
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text font-medium">Name</span>
+          </div>
+          <input type="text" class="input input-bordered w-full" />
+        </label>
+
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text font-medium">Message</span>
+          </div>
+          <textarea class="textarea textarea-bordered h-24"></textarea>
+        </label>
+
+        <button class="btn btn-primary btn-block mt-6"> Submit </button>
+      </form>
+    </section>
+  </main>
+  <footer class="bg-secondary grid grid-cols-[auto_1fr_auto] gap-12 text-white p-8 mt-12">
+    <Logo size="small" isWhiteText />
+    <em class="py-2">
+      <small>
+        "to Him be glory in the church and in Christ Jesus throughout all generations, forever and
+        ever. Amen."
+        <br />
+        <strong> Ephesians 3:21 </strong>
+      </small>
+    </em>
+    <div class="flex-1 gap-2">
+      <div class="grid gap-1.5">
+        <p class="text-sm">
+          2F 9 E. Rodriguez St., Corner Lakandula
+          <br /> Parang, Marikina, 1809
+          <br /> Metro Manila, Philippines
+        </p>
+        <p class="text-sm">©{currentYear} Christ's Glory Church</p>
+      </div>
+    </div>
+  </footer>
+</MainLayout>
