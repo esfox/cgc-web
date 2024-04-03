@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["astro", "daisyui", "lakandula", "marikina"],
+  "words": ["astro", "daisyui", "lakandula", "marikina", "fortawesome", "fontawesome"],
   "ignorePaths": [
     "node_modules/",
     ".husky",

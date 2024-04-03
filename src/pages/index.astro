@@ -91,7 +91,7 @@ const currentYear = new Date().getFullYear();
     </section>
   </main>
 
-  <footer class="bg-secondary text-white p-8 pb-4 mt-12">
+  <footer class="bg-secondary text-white p-8 pb-5 mt-12">
     <div class="grid md:place-items-center gap-6 md:grid-cols-[auto_1fr_auto] md:gap-12">
       <Logo class="mx-auto md:mx-0" size="small" isWhiteText />
       <em class="py-2">
@@ -110,6 +110,24 @@ const currentYear = new Date().getFullYear();
         </p>
       </div>
     </div>
-    <small class="block text-end text-xs mt-6">©{currentYear} Christ's Glory Church</small>
+    <div class="flex justify-between items-end mt-1">
+      <small class="text-xs mt-6">©{currentYear} Christ's Glory Church</small>
+      <div class="flex justify-center items-center gap-1">
+        <a href="https://facebook.com/christsglorychurch" rel="ugc" target="_blank">
+          <button class="btn btn-circle btn-ghost btn-sm">
+            <i class="fab fa-facebook fa-xl"></i>
+          </button>
+        </a>
+        <a href="https://instagram.com/christsglorychurch" rel="ugc" target="_blank">
+          <button class="btn btn-circle btn-ghost btn-sm">
+            <i class="fab fa-instagram fa-xl"></i>
+          </button>
+        </a>
+        <!-- <div class="ml-2 mt-1"> -->
+        <!--   <i class="fa fa-phone"></i> -->
+        <!--   <small class="ml-1">+639228702402</small> -->
+        <!-- </div> -->
+      </div>
+    </div>
   </footer>
 </MainLayout>
