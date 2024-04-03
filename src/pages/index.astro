@@ -81,27 +81,25 @@ const currentYear = new Date().getFullYear();
     </section>
   </main>
 
-  <footer
-    class="bg-secondary grid text-white gap-6 p-8 mt-12 md:grid-cols-[auto_1fr_auto] md:gap-12"
-  >
-    <Logo size="small" isWhiteText />
-    <em class="py-2">
-      <small>
-        "to Him be glory in the church and in Christ Jesus throughout all generations, forever and
-        ever. Amen."
-        <br />
-        <strong> Ephesians 3:21 </strong>
-      </small>
-    </em>
-    <div class="flex-1 gap-2">
-      <div class="grid gap-1.5">
-        <p class="text-sm">
+  <footer class="bg-secondary text-white p-8 pb-4 mt-12">
+    <div class="grid md:place-items-center gap-6 md:grid-cols-[auto_1fr_auto] md:gap-12">
+      <Logo class="mx-auto md:mx-0" size="small" isWhiteText />
+      <em class="py-2">
+        <small>
+          "to Him be glory in the church and in Christ Jesus throughout all generations, forever and
+          ever. Amen."
+          <br />
+          <strong> Ephesians 3:21 </strong>
+        </small>
+      </em>
+      <div class="flex-1 gap-2">
+        <p class="text-sm md:text-end">
           2F 9 E. Rodriguez St., Corner Lakandula
           <br /> Parang, Marikina, 1809
           <br /> Metro Manila, Philippines
         </p>
-        <p class="text-sm">©{currentYear} Christ's Glory Church</p>
       </div>
     </div>
+    <small class="block text-end text-xs mt-6">©{currentYear} Christ's Glory Church</small>
   </footer>
 </MainLayout>

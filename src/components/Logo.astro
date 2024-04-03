@@ -1,11 +1,12 @@
 ---
 interface Props {
+  class?: string;
   size?: 'small' | 'normal';
   isWhite?: boolean;
   isWhiteText?: boolean;
 }
 
-const { size, isWhite, isWhiteText } = Astro.props;
+const { class: className, size, isWhite, isWhiteText } = Astro.props;
 
 let logoSvgSize = '144px';
 let textSize = 'text-2xl';
@@ -20,7 +21,7 @@ if (isWhite) {
 }
 ---
 
-<a class="flex items-center" href="/" rel="ugc">
+<a class:list={['flex items-center', className]} href="/" rel="ugc">
   <svg
     width={logoSvgSize}
     height={logoSvgSize}
