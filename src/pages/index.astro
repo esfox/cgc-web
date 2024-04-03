@@ -15,11 +15,17 @@ const currentYear = new Date().getFullYear();
     <!-- </nav> -->
   </header>
 
-  <main class="max-w-2xl mx-auto px-12 md:px-0">
+  <img
+    src="/images/hero.jpg"
+    class="w-full h-[300px] object-cover md:h-[500px] lg:h-[600px]"
+    alt="hero image"
+  />
+
+  <main class="max-w-2xl mx-auto px-8 md:px-0">
     <section>
-      <h1 class="text-3xl font-extrabold py-4">Welcome to Our Church</h1>
+      <h1 class="text-3xl text-center font-extrabold mt-10">Welcome to Our Church</h1>
       {/* cSpell:disable */}
-      <p class="text-xl leading-loose">
+      <p class="text-lg leading-loose mt-6">
         Lorem ipsum dolor rutrum porttitor est, a iaculis purus hendrerit eu. Suspendisse potenti.
         Quisque nunc eros, tincidunt et enim eu, ultrices posuere nunc. Morbi sodales sem eu dolor
         fermentum, quis maximus ligula ultrices. Sed lobortis pretium lacinia. Praesent auctor non
@@ -30,7 +36,9 @@ const currentYear = new Date().getFullYear();
       {/* cSpell:enable */}
     </section>
 
-    <section class="max-w-sm mx-auto mt-12">
+    <hr class="my-8" />
+
+    <section class="max-w-sm mx-auto">
       <h2 class="text-3xl font-extrabold">Lord's Day Schedule</h2>
       <div class="w-full divide-y mt-6">
         <div class="grid gap-1.5 py-2">
@@ -52,7 +60,9 @@ const currentYear = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="max-w-md mx-auto mt-16">
+    <hr class="my-8" />
+
+    <section class="max-w-md mx-auto">
       <h2 class="text-3xl font-extrabold">Contact Us</h2>
       <form class="mt-4">
         <label class="form-control w-full">
