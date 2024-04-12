@@ -1,7 +1,19 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["astro", "daisyui", "lakandula", "marikina", "fortawesome", "fontawesome"],
+  "words": [
+    "astro",
+    "daisyui",
+    "lakandula",
+    "marikina",
+    "fortawesome",
+    "fontawesome",
+    "onclick",
+    "prerender",
+    "astrojs",
+    "turso",
+    "libsql"
+  ],
   "ignorePaths": [
     "node_modules/",
     ".husky",
@@ -9,6 +21,7 @@
     "package.json",
     ".prettierrc",
     "public",
-    "src/components/Logo.astro"
+    "src/components/Logo.astro",
+    "src/database/migrations"
   ]
 }
