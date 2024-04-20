@@ -4,12 +4,15 @@ interface Props {
   size?: 'small' | 'normal';
   isWhite?: boolean;
   isWhiteText?: boolean;
+  noText?: boolean;
+  noLink?: boolean;
 }
 
-const { class: className, size, isWhite, isWhiteText } = Astro.props;
+const { class: className, size, isWhite, isWhiteText, noText, noLink } = Astro.props;
 
 let logoSvgSize = '144px';
 let textSize = 'text-2xl';
+
 if (size === 'small') {
   logoSvgSize = '80px';
   textSize = 'text-sm';
@@ -19,9 +22,17 @@ let color = '#d19b41';
 if (isWhite) {
   color = '#ffffff';
 }
+
+const Element = noLink ? 'div' : 'a';
+const linkAttributes = noLink
+  ? {}
+  : {
+      href: '/',
+      rel: 'ugc',
+    };
 ---
 
-<a class:list={['flex items-center', className]} href="/" rel="ugc">
+<Element class:list={['flex items-center', className]} {...linkAttributes}>
   <svg
     width={logoSvgSize}
     height={logoSvgSize}
@@ -50,21 +61,25 @@ if (isWhite) {
     <path class="cls-1" d="M835.29,651.41a229.69,229.69,0,0,0,69.21-134H835.29Z"></path>
   </svg>
 
-  <div
-    class:list={[
-      'text-left font-black tracking-wider',
-      textSize,
-      isWhiteText ? 'text-white' : 'text-secondary',
-    ]}
-  >
-    <div>
-      <span class={isWhite ? 'text-white' : 'text-primary'}>C</span>hrist's
-    </div>
-    <div>
-      <span class={isWhite ? 'text-white' : 'text-primary'}>G</span>lory
-    </div>
-    <div>
-      <span class={isWhite ? 'text-white' : 'text-primary'}>C</span>hurch
-    </div>
-  </div>
-</a>
+  {
+    !noText && (
+      <div
+        class:list={[
+          'text-left font-black tracking-wider',
+          textSize,
+          isWhiteText ? 'text-white' : 'text-secondary',
+        ]}
+      >
+        <div>
+          <span class={isWhite ? 'text-white' : 'text-primary'}>C</span>hrist's
+        </div>
+        <div>
+          <span class={isWhite ? 'text-white' : 'text-primary'}>G</span>lory
+        </div>
+        <div>
+          <span class={isWhite ? 'text-white' : 'text-primary'}>C</span>hurch
+        </div>
+      </div>
+    )
+  }
+</Element>

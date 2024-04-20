@@ -8,7 +8,8 @@
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
-    "project": ["./tsconfig.eslint.json"]
+    "project": ["./tsconfig.eslint.json"],
+    "extraFileExtensions": [".astro", ".vue"]
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
@@ -27,6 +28,9 @@
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"]
+      },
+      "rules": {
+        "@typescript-eslint/no-unsafe-return": "off"
       }
     }
   ],

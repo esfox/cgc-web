@@ -1,17 +1,24 @@
 ---
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../styles/index.css';
+
+interface Props {
+  title?: string;
+  bodyClass?: string;
+}
+
+const { title, bodyClass } = Astro.props;
 ---
 
-<html lang="en" data-theme="emerald">
+<html lang="en" data-theme="emerald" transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Christ's Glory Church</title>
+    <title>{title ?? "Christ's Glory Church"}</title>
   </head>
-  <body>
+  <body class:list={bodyClass}>
     <slot />
   </body>
 </html>

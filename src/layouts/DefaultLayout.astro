@@ -1,0 +1,17 @@
+---
+import RootLayout from './RootLayout.astro';
+import Header from '../components/Header.astro';
+
+interface Props {
+  centeredContent?: boolean;
+}
+
+const { centeredContent } = Astro.props;
+---
+
+<RootLayout
+  bodyClass={centeredContent ? 'grid grid-rows-[auto_1fr] place-items-center' : undefined}
+>
+  <Header />
+  <slot />
+</RootLayout>

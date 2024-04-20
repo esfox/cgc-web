@@ -1,20 +1,11 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Logo from '../components/Logo.astro';
 
 const currentYear = new Date().getFullYear();
 ---
 
-<MainLayout>
-  <header class="grid place-items-center py-6">
-    <Logo />
-    <!-- <nav class="flex gap-6 mt-2"> -->
-    <!--   <a href="#" rel="ugc" class="font-medium"> About </a> -->
-    <!--   <a href="#" rel="ugc" class="font-medium"> Schedule </a> -->
-    <!--   <a href="#" rel="ugc" class="font-medium"> Contact </a> -->
-    <!-- </nav> -->
-  </header>
-
+<DefaultLayout>
   <img
     src="/images/hero.jpg"
     class="w-full h-[300px] object-cover md:h-[500px] lg:h-[600px]"
@@ -23,7 +14,7 @@ const currentYear = new Date().getFullYear();
 
   <main class="max-w-2xl mx-auto px-8 md:px-0">
     <section>
-      <h1 class="text-3xl text-center font-extrabold mt-10">Welcome to Our Church</h1>
+      <h1 class="text-center mt-10">Welcome to Our Church</h1>
       {/* cSpell:disable */}
       <p class="text-lg leading-loose mt-6">
         Lorem ipsum dolor rutrum porttitor est, a iaculis purus hendrerit eu. Suspendisse potenti.
@@ -39,22 +30,22 @@ const currentYear = new Date().getFullYear();
     <hr class="my-8" />
 
     <section class="max-w-sm mx-auto">
-      <h2 class="text-3xl font-extrabold">Lord's Day Schedule</h2>
+      <h1>Lord's Day Schedule</h1>
       <div class="w-full divide-y mt-6">
         <div class="grid gap-1.5 py-2">
-          <h3 class="text-xl font-semibold">9:00 AM</h3>
+          <h3>9:00 AM</h3>
           <p class="leading-loose">Morning Service</p>
         </div>
         <div class="grid gap-1.5 py-2">
-          <h3 class="text-xl font-semibold">11:00 AM</h3>
+          <h3>11:00 AM</h3>
           <p class="leading-loose">Adults' Sunday School</p>
         </div>
         <div class="grid gap-1.5 py-2">
-          <h3 class="text-xl font-semibold">2:00 PM</h3>
+          <h3>2:00 PM</h3>
           <p class="leading-loose">Kids' Sunday School</p>
         </div>
         <div class="grid gap-1.5 py-2">
-          <h3 class="text-xl font-semibold">3:00 PM</h3>
+          <h3>3:00 PM</h3>
           <p class="leading-loose">Afternoon Service</p>
         </div>
       </div>
@@ -63,7 +54,7 @@ const currentYear = new Date().getFullYear();
     <hr class="my-8" />
 
     <section class="max-w-md mx-auto">
-      <h2 class="text-3xl font-extrabold">Contact Us</h2>
+      <h1>Contact Us</h1>
       <form class="mt-4">
         <label class="form-control w-full">
           <div class="label">
@@ -130,4 +121,4 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
   </footer>
-</MainLayout>
+</DefaultLayout>

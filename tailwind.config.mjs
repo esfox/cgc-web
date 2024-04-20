@@ -23,6 +23,9 @@ export default {
           primary: '#d19b41',
           'primary-content': '#fff',
           secondary: '#0b3522',
+          '.btn': {
+            'border-radius': '12px',
+          },
         },
       },
     ],
