@@ -1,0 +1,135 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { hymnsService } from '../../../services/hymns.service';
+
+export const prerender = false;
+
+let hymns = await hymnsService.list();
+
+if (Astro.request.method === 'POST') {
+  try {
+    const postData = await Astro.request.formData();
+    const title = postData.get('title')?.toString() ?? '';
+    const lyrics = postData.get('lyrics')?.toString() ?? '';
+    await hymnsService.create({ title, lyrics });
+    hymns = await hymnsService.list();
+  } catch (error) {
+    alert('An error occurred');
+    // TODO: Handle error
+  }
+}
+
+if (Astro.request.method === 'DELETE') {
+  const deleteData = await Astro.request.formData();
+  const hymnId = deleteData.get('hymnId');
+  if (!hymnId) {
+    return;
+  }
+
+  await hymnsService.delete(Number(hymnId));
+}
+---
+
+<AdminLayout title="Hymns">
+  <button slot="actions" class="btn btn-primary" onclick="hymn_add_dialog.showModal()">
+    <i class="fa fa-plus fa-lg mt-1"></i>
+    Add Hymn
+  </button>
+  <ul>
+    {
+      hymns.length !== 0 &&
+        hymns.map(hymn => (
+          <a href="#">
+            <li class="flex items-center justify-between p-5 hover:bg-neutral-100">
+              <h3 class="font-extrabold">{hymn.title}</h3>
+              <div>
+                <button class="hymn-action btn btn-warning">
+                  <i class="fa fa-pen" />
+                  Edit
+                </button>
+                <button
+                  data-hymn-id={hymn.id}
+                  class="hymn-action hymn-delete btn btn-error text-white ml-1"
+                >
+                  <i class="fa fa-trash" />
+                  Delete
+                </button>
+              </div>
+            </li>
+            <hr />
+          </a>
+        ))
+    }
+  </ul>
+  {
+    hymns.length === 0 && (
+      <div class="h-full grid place-items-center text-neutral-500 py-6">No hymns added yet</div>
+    )
+  }
+
+  <dialog id="hymn_add_dialog" class="modal">
+    <div class="modal-box w-[400px] pb-2">
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      </form>
+      <h3>Add New Hymn</h3>
+      <form method="post" class="flex flex-col items-stretch py-4">
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Title</span>
+          </div>
+          <input
+            type="text"
+            name="title"
+            placeholder="Amazing Grace"
+            class="input input-bordered w-full"
+          />
+        </label>
+        <label class="form-control mt-2">
+          <div class="label">
+            <span class="label-text">Lyrics</span>
+          </div>
+          <textarea
+            class="textarea textarea-bordered"
+            name="lyrics"
+            placeholder="Amazing grace how sweet the sound\nthat saved a wretch like me!"
+            rows="15"></textarea>
+        </label>
+        <button class="btn btn-primary w-28 min-h-12 h-12 mt-5 mx-auto">
+          <i class="fa fa-save"></i>
+          Save
+        </button>
+      </form>
+    </div>
+  </dialog>
+</AdminLayout>
+
+<script>
+  const actionButtons = document.querySelectorAll<HTMLButtonElement>('button.hymn-action');
+  actionButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+    });
+  });
+
+  const hymnDeleteButtons = document.querySelectorAll<HTMLButtonElement>('button.hymn-delete');
+  hymnDeleteButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const hymnId = button.getAttribute('data-hymn-id');
+      if (!hymnId) {
+        return;
+      }
+
+      const data = new FormData();
+      data.append('hymnId', hymnId);
+
+      console.debug(data);
+      await fetch('', {
+        method: 'DELETE',
+        body: data,
+      });
+
+      location.reload();
+    });
+  });
+</script>

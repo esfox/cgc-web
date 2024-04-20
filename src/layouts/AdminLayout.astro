@@ -1,0 +1,49 @@
+---
+import RootLayout from './RootLayout.astro';
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+let adminTitle = `CGC | Admin`;
+if (title) {
+  adminTitle += `- ${title}`;
+}
+---
+
+<RootLayout title={adminTitle}>
+  <div class="h-full grid grid-rows-[auto_1fr]">
+    <header class="w-full grid grid-cols-[auto_1fr] shadow-lg">
+      <div
+        class="logo-section h-[75px] flex items-center justify-between text-white text-white bg-secondary p-2"
+      >
+        <div class="flex items-center">
+          <a href="/admin">
+            <Logo size="small" isWhiteText noText noLink />
+          </a>
+          <h3 class="text-white leading-snug text-lg ml-2">Admin</h3>
+        </div>
+        {!title && <slot name="actions" />}
+      </div>
+      {
+        title && (
+          <div class="h-[75px] bg-white flex justify-between items-center p-5">
+            <h2 class="font-extrabold">{title}</h2>
+            <slot name="actions" />
+          </div>
+        )
+      }
+    </header>
+    <main>
+      <slot />
+    </main>
+  </div>
+</RootLayout>
+
+<style define:vars={{ logoSectionWidth: title ? '180px' : '100vw' }}>
+  .logo-section {
+    width: var(--logoSectionWidth);
+  }
+</style>
