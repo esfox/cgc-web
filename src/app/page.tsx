@@ -6,7 +6,7 @@ import { InputTextarea } from 'primereact/inputtextarea';
 export default function Home() {
   const currentYear = new Date().getFullYear();
   return (
-    <div>
+    <>
       <img
         src="/images/hero.jpg"
         className="w-full h-[300px] object-cover md:h-[500px] lg:h-[600px]"
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 

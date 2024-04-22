@@ -1,4 +1,4 @@
-import { Logo } from '../components/Logo';
+import { Logo } from '@/components/Logo';
 
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
